@@ -1,0 +1,46 @@
+:root {
+  --default-font: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --heading-font: "Montserrat", sans-serif;
+  --nav-font: "Poppins", sans-serif;
+
+  --background-color: #ffffff;
+  --default-color: #212529;
+  --heading-color: #32353a;
+  --accent-color: #e84545;
+  --surface-color: #ffffff;
+  --contrast-color: #ffffff;
+
+  --nav-color: #3a3939;
+  --nav-hover-color: #e84545;
+  --nav-mobile-background-color: #ffffff;
+  --nav-dropdown-background-color: #ffffff;
+  --nav-dropdown-color: #3a3939;
+  --nav-dropdown-hover-color: #e84545;
+}
+
+section,
+.section {
+  color: var(--default-color);
+  background-color: var(--background-color);
+  padding: 60px 0;
+  scroll-margin-top: 98px;
+  overflow: clip;
+}
+
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--heading-color);
+  font-family: var(--heading-font) !important;
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none !important;
+  transition: 0.3s;
+}

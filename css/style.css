@@ -1,0 +1,494 @@
+@import url(media.css);
+@import url(defaults.css);
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+:root {
+    --default-font: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --heading-font: "Montserrat", sans-serif;
+    --nav-font: "Poppins", sans-serif;
+}
+
+/* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
+:root {
+    --background-color: #ffffff;
+    /* Background color for the entire website, including individual sections */
+    --default-color: #212529;
+    /* Default color used for the majority of the text content across the entire website */
+    --heading-color: #32353a;
+    /* Color for headings, subheadings and title throughout the website */
+    --accent-color: #e84545;
+    /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+    --surface-color: #ffffff;
+    /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
+    --contrast-color: #ffffff;
+    /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
+}
+
+/* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
+:root {
+    --nav-color: #3a3939;
+    /* The default color of the main navmenu links */
+    --nav-hover-color: #e84545;
+    /* Applied to main navmenu links when they are hovered over or active */
+    --nav-mobile-background-color: #ffffff;
+    /* Used as the background color for mobile navigation menu */
+    --nav-dropdown-background-color: #ffffff;
+    /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
+    --nav-dropdown-color: #3a3939;
+    /* Used for navigation links of the dropdown items in the navigation menu. */
+    --nav-dropdown-hover-color: #e84545;
+    /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+}
+
+/* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
+
+.light-background {
+    --background-color: #f9f9f9;
+    --surface-color: #ffffff;
+}
+
+.dark-background {
+    --background-color: #060606;
+    --default-color: #ffffff;
+    --heading-color: #ffffff;
+    --surface-color: #252525;
+    --contrast-color: #ffffff;
+}
+
+/* Smooth scroll */
+:root {
+    scroll-behavior: smooth;
+}
+
+*,
+::before,
+::after {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+html,
+body {
+    color: var(--default-color) !important;
+    background-color: var(--background-color) !important;
+    font-family: var(--default-font) !important;
+}
+
+.header {
+    color: var(--default-color);
+    background-color: var(--background-color);
+    padding: 20px 0;
+    transition: all 0.5s;
+    z-index: 997;
+}
+
+.index-page .header {
+    --background-color: rgba(255, 255, 255, 0) !important;
+    --heading-color: #ffffff !important;
+    --nav-color: rgba(255, 255, 255, 0.5) !important;
+    --nav-hover-color: #ffffff !important;
+}
+
+.index-page.scrolled .header {
+    --background-color: #ffffff !important;
+    --heading-color: #32353a !important;
+    --nav-color: #3a3939 !important;
+    --nav-hover-color: #e84545 !important;
+}
+
+.header .logo {
+    line-height: 1;
+}
+
+.header .logo h1 {
+    font-size: 24px;
+    margin: 0%;
+    font-weight: 600;
+    color: var(--heading-color);
+}
+
+.header .logo span {
+    color: var(--accent-color);
+    font-size: 24px;
+    font-weight: 600;
+    padding-left: 3px;
+}
+
+.header .btn-getstarted,
+.header .btn-getstarted:focus {
+    color: var(--contrast-color);
+    background: var(--accent-color);
+    font-size: 14px;
+    padding: 8px 26px;
+    margin: 0;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.header .btn-getstarted:hover,
+.header .btn-getstarted:focus:hover {
+    color: var(--contrast-color);
+    background: color-mix(in srgb, var(--accent-color), transparent 15%);
+}
+
+
+
+/* Hero Section */
+
+.hero {
+    width: 100%;
+    min-height: 100vh;
+    padding: 80px 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero::before {
+    content: "";
+    background: color-mix(in srgb, var(--background-color), transparent 50%);
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+}
+
+.hero img {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.hero .container {
+    position: relative;
+    z-index: 3;
+}
+
+.hero h2 {
+    margin: 0;
+    font-size: 44px;
+    font-weight: 700;
+}
+
+.hero p {
+    color: color-mix(in srgb, var(--default-color), transparent 20%);
+    margin: 5px 0 0 0;
+    font-size: 20px;
+}
+
+.hero .sign-up-form {
+    margin-top: 20px;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 7px;
+    background: color-mix(in srgb, var(--default-color) 5%, white 90%);
+    box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.1);
+    display: flex;
+}
+
+.hero .sign-up-form input[type=email] {
+    background-color: transparent;
+    border: 0;
+    padding: 4px 10px;
+    width: 100%;
+}
+
+.hero .sign-up-form input[type=email]:focus-visible {
+    outline: none;
+}
+
+
+.hero .sign-up-form input[type=submit] {
+    border: 0;
+    box-shadow: none;
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    padding: 8px 20px 10px 20px;
+    border-radius: 7px;
+    color: var(--contrast-color);
+    transition: 0.3s;
+}
+
+.hero .sign-up-form input[type=submit]:hover {
+    background-color: color-mix(in srgb, var(--accent-color), transparent 10%);
+}
+
+
+/* Clients Section */
+.clients {
+    padding: 20px 0;
+}
+
+.clients .client-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.clients .client-logo img {
+    padding: 20px 40px;
+    max-width: 90%;
+    transition: 0.3s;
+    opacity: 0.5;
+    filter: grayscale(100);
+}
+
+/* About Us Section */
+.about .content h3 {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 19px;
+    padding: 10px 20px;
+    background: color-mix(in srgb, var(--accent-color), transparent 95%);
+    color: var(--accent-color);
+    border-radius: 7px;
+    display: inline-block;
+}
+
+.about .content h2 {
+    font-weight: 700;
+}
+
+.about .content .read-more {
+    background: var(--accent-color);
+    color: var(--contrast-color);
+    font-family: var(--heading-font);
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 1px;
+    padding: 12px 24px;
+    border-radius: 5px;
+    transition: 0.3s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about .content .read-more i {
+    font-size: 18px;
+    margin-left: 5px;
+    line-height: 0;
+    transition: 0.3s;
+}
+
+.about .content .read-more:hover {
+    background: color-mix(in srgb, var(--accent-color), transparent 20%);
+    padding-right: 19px;
+}
+
+.about .content .read-more:hover i {
+    margin-left: 10px;
+}
+
+.about .icon-box {
+    background-color: var(--surface-color);
+    padding: 50px 40px;
+    box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    transition: all 0.3s ease-out 0s;
+}
+
+.about .icon-box i {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    font-size: 32px;
+    line-height: 0;
+    transition: all 0.4s ease-out 0s;
+    background-color: color-mix(in srgb, var(--accent-color), transparent 95%);
+    color: var(--accent-color);
+}
+
+.about .icon-box:hover i {
+    background-color: var(--accent-color);
+    color: var(--contrast-color);
+}
+
+.about .icon-box h3 {
+    margin-bottom: 10px;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.about .icon-box p {
+    margin-bottom: 0;
+}
+
+.about .icon-boxes .col-md-6:nth-child(2) .icon-box {
+    margin-top: -50px;
+}
+
+.about .icon-boxes .col-md-6:nth-child(4) .icon-box {
+    margin-top: -40px;
+}
+
+
+/* Stats Section */
+.stats {
+    position: relative;
+    padding: 120px 0;
+}
+
+.stats::before {
+    content: "";
+    background: color-mix(in srgb, var(--background-color), transparent 40%);
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+}
+
+.stats img {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.stats .container {
+    position: relative;
+    z-index: 3;
+}
+
+.stats .stats-item {
+    padding: 30px;
+    width: 100%;
+}
+
+.stats .stats-item span {
+    font-size: 48px;
+    display: block;
+    color: var(--default-color);
+    font-weight: 700;
+}
+
+.stats .stats-item p {
+    padding: 0;
+    margin: 0;
+    font-family: var(--heading-font);
+    font-size: 16px;
+    font-weight: 700;
+    color: color-mix(in srgb, var(--default-color), transparent 40%);
+}
+
+/* Services Section */
+
+.section-title {
+    text-align: center;
+    padding-bottom: 60px;
+    position: relative;
+}
+
+.section-title h2 {
+    font-size: 32px;
+    font-weight: 700;
+    position: relative;
+}
+
+.section-title h2:before,
+.section-title h2:after {
+    content: "";
+    width: 50px;
+    height: 2px;
+    background: var(--accent-color);
+    display: inline-block;
+}
+
+.section-title h2:before {
+    margin: 0 15px 10px 0;
+}
+
+.section-title h2:after {
+    margin: 0 0 10px 15px;
+}
+
+.section-title p {
+    margin-bottom: 0;
+}
+
+.services .service-item {
+    position: relative;
+    padding-top: 40px;
+}
+
+.services .service-item:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: color-mix(in srgb, var(--default-color), transparent 90%);
+}
+
+.services .service-item::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 32px;
+    height: 2px;
+    background: var(--accent-color);
+    border-right: 5px solid var(--background-color);
+}
+
+.services .service-item .icon {
+    width: 48px;
+    height: 48px;
+    position: relative;
+    margin-right: 50px;
+    line-height: 0;
+}
+
+.services .service-item .icon:before {
+    position: absolute;
+    content: "";
+    height: 30px;
+    width: 30px;
+    background: color-mix(in srgb, var(--accent-color), transparent 70%);
+    border-radius: 50px;
+    z-index: 1;
+    bottom: -15px;
+    right: -15px;
+    transition: 0.3s;
+}
+
+.services .service-item .icon i {
+    color: color-mix(in srgb, var(--default-color), transparent 30%);
+    font-size: 56px;
+    transition: ease-in-out 0.3s;
+    z-index: 2;
+    position: relative;
+}
+
+.services .service-item .title {
+    font-weight: 700;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.services .service-item .title a {
+    color: var(--heading-color);
+}
+
+.services .service-item .description{
+    line-height: 24px;
+    font-size: 14px;
+}
