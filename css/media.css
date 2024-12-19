@@ -206,4 +206,14 @@
     .about .icon-boxes .col-md-6:nth-child(4) .icon-box {
         margin-top: 0 !important;
     }
+
+    .features .features-item+.features-item {
+        margin-top: 40px !important;
+    }
+}
+
+@media (max-width: 640px) {
+    .features .features-item .features-img-bg {
+        min-height: 300px !important;
+    }
 }
