@@ -217,3 +217,10 @@
         min-height: 300px !important;
     }
 }
+
+@media (max-width: 575px) {
+    .portfolio .portfolio-filters li {
+        font-size: 14px !important;
+        margin: 0 0 10px 0 !important;
+    }
+}
