@@ -10,14 +10,13 @@ window.addEventListener("scroll", () => {
   }
 });
 
-
 // Scroll after click on nav links
 const sections = document.querySelectorAll("section"); // Replace with the appropriate selector for your sections
 const menuLinks = document.querySelectorAll(".navmenu ul li a"); // Adjust the selector if necessary
 const headerHeight = document.querySelector(".header")?.offsetHeight || 0; // Adjust if your header height is dynamic
 
-
-function setActiveLink() { // Function to set the active link
+function setActiveLink() {
+  // Function to set the active link
   let currentSectionId = "";
 
   sections.forEach((section) => {
@@ -63,4 +62,37 @@ menuLinks.forEach((link) => {
       });
     }
   });
+});
+
+// Mobile nav open
+const mobileNavToggle = document.querySelector(".mobile-nav-toggle");
+const navbar = document.querySelector("body");
+const toggleDropdown1 = document.querySelector(".dropdown i");//Dropdown
+const toggleDropdown2 = document.querySelector(".dropdown .dropdown i"); //Deep Dropdown
+
+const dropUl1 = document.querySelector(".dropdown ul");
+const dropUl2 = document.querySelector(".dropdown .dropdown ul");
+const dropActive1 = document.querySelector(".dropdown a"); //Dropdown
+const dropActive2 = document.querySelector(".dropdown ul .dropdown a"); //Deep Dropdown
+
+// Add click event listener to the toggle button
+mobileNavToggle.addEventListener("click", () => {
+  navbar.classList.toggle("mobile-nav-active");
+  // document.body.classList.toggle('no-scroll');
+  if (mobileNavToggle.classList.contains("bi-list")) {
+    mobileNavToggle.classList.replace("bi-list", "bi-x");
+  } else {
+    mobileNavToggle.classList.replace("bi-x", "bi-list");
+  }
+});
+
+toggleDropdown1.addEventListener("click", () => {
+  dropActive1.classList.toggle("active");
+  dropUl1.classList.toggle("dropdown-active");
+});
+
+toggleDropdown2.addEventListener("click", () => {
+  dropActive2.classList.toggle("active");
+
+  dropUl2.classList.toggle("dropdown-active");
 });
