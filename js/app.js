@@ -1,3 +1,8 @@
+AOS.init({
+  debug: true,
+});
+
+
 // Select the header element
 const body = document.querySelector(".index-page");
 
@@ -56,6 +61,8 @@ menuLinks.forEach((link) => {
 
     if (targetSection) {
       const position = targetSection.offsetTop - headerHeight; // Adjust for header height
+      navbar.classList.remove("mobile-nav-active");
+      mobileNavToggle.classList.replace("bi-x", "bi-list");
       window.scrollTo({
         top: position,
         behavior: "smooth",

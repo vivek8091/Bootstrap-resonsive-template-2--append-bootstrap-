@@ -185,6 +185,7 @@
         height: 100vh;
     }
 
+
     .mobile-nav-toggle {
         color: var(--nav-color);
         font-size: 28px;
@@ -266,6 +267,16 @@
         transition: 0.3s;
     }
 
+    .navmenu .active a,
+    .navmenu .active a:focus {
+        color: var(--nav-hover-color) !important;
+    }
+
+    .index-page .navmenu .active a,
+    .index-page .navmenu .active a:focus{
+        color: var(--active-color) !important;
+    }
+
     .navmenu a i,
     .navmenu a:focus i {
         font-size: 12px;
@@ -281,15 +292,8 @@
         background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
     }
 
-    .navmenu .active i,
-    .navmenu .active:focus i {
-        background-color: var(--accent-color) !important;
-        color: var(--contrast-color);
-        transform: rotate(180deg);
-    }
-
-    .navmenu .active i,
-    .navmenu .active:focus i {
+    .navmenu .active .dropdown i,
+    .navmenu .active:focus .dropdown i {
         background-color: var(--accent-color) !important;
         color: var(--contrast-color);
         transform: rotate(180deg);

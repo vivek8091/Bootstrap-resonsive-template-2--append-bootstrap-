@@ -95,6 +95,7 @@ body {
     --heading-color: #ffffff !important;
     --nav-color: rgba(255, 255, 255, 0.5) !important;
     --nav-hover-color: #ffffff !important;
+    --active-color: #e84545 !important;
 }
 
 .index-page.scrolled .header {
@@ -240,6 +241,11 @@ body {
     transition: 0.3s;
     opacity: 0.5;
     filter: grayscale(100);
+}
+
+.clients .client-logo img:hover{
+    opacity: 1;
+    filter: none;
 }
 
 /* About Us Section */
