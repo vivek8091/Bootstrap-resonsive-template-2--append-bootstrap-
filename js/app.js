@@ -21,7 +21,6 @@ const headerHeight = document.querySelector(".header")?.offsetHeight || 0; // Ad
 const mobileNavToggle = document.querySelector(".mobile-nav-toggle");
 const navbar = document.querySelector("body");
 
-
 // Scroll after click logic...
 function setActiveLink() {
   // Function to set the active link
@@ -36,7 +35,7 @@ function setActiveLink() {
     }
   });
 
-  // Remove active class from all links
+  // Remove active class from all links...
   menuLinks.forEach((link) => link.parentElement.classList.remove("active"));
 
   // Add active class to the link corresponding to the current section
@@ -48,14 +47,13 @@ function setActiveLink() {
   }
 }
 
-// Add scroll listener
+// Add scroll listener...
 window.addEventListener("scroll", setActiveLink);
 
-// Call setActiveLink on page load to ensure the correct link is active
+// Call setActiveLink on page load to ensure the correct link is active...
 setActiveLink();
 
-// Smooth scroll when clicking on menu links
-// const links = document.querySelector(".navmenu")
+// Smooth scroll when clicking on menu links...
 menuLinks.forEach((link) => {
   link.addEventListener("click", (e) => {
     e.preventDefault();
@@ -74,8 +72,7 @@ menuLinks.forEach((link) => {
   });
 });
 
-
-// Add click event listener to the toggle button
+// Add click event listener to the toggle button...
 mobileNavToggle.addEventListener("click", () => {
   navbar.classList.toggle("mobile-nav-active");
   if (mobileNavToggle.classList.contains("bi-list")) {
@@ -92,4 +89,29 @@ document.querySelectorAll(".navmenu .toggle-dropdown").forEach((navmenu) => {
     this.parentNode.nextElementSibling.classList.toggle("dropdown-active");
     e.stopImmediatePropagation();
   });
+});
+
+// Portfolio section...
+document.addEventListener("DOMContentLoaded", function () {
+  // Initialize Isotope on the portfolio-container
+  var portfolioContainer = document.querySelector(".portfolio-container");
+
+  if (portfolioContainer) {
+    var iso = new Isotope(portfolioContainer, {
+      itemSelector: ".portfolio-item", // Target items
+      layoutMode: "masonry", // Masonry-like layout
+      masonry: {
+        columnWidth: ".portfolio-item", // Use portfolio-item width for column sizing
+      },
+    });
+
+    // Optional: Add filtering functionality (if filter buttons exist)
+    var filterButtons = document.querySelectorAll(".filter-button");
+    filterButtons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        var filterValue = button.getAttribute("data-filter");
+        iso.arrange({ filter: filterValue });
+      });
+    });
+  }
 });

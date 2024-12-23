@@ -296,11 +296,11 @@
 
 @media (max-width: 768px) {
 
-    .hero h2{
+    .hero h2 {
         font-size: 32px !important;
     }
 
-    .hero p{
+    .hero p {
         font-size: 18px !important;
     }
 
@@ -322,7 +322,18 @@
 
 @media (max-width: 575px) {
     .portfolio .portfolio-filters li {
-        font-size: 14px !important;
-        margin: 0 0 10px 0 !important;
+        font-size: 14px;
+        margin: 0 0 10px 0;
+    }
+
+    .portfolio .grid {
+        grid-template-columns: 1fr;
+        /* Single column on small screens */
+    }
+}
+
+@media (max-width: 992px) {
+    .portfolio .grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
