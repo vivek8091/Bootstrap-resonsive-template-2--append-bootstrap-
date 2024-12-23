@@ -47,38 +47,10 @@
         transition: 0.3s;
     }
 
-    .navmenu a i,
-    .navmenu a:focus i {
-        font-size: 12px;
-        line-height: 0;
-        margin-left: 5px;
-        width: 30px;
-        height: 30px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-        transition: 0.3s;
-        background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
-    }
-
-    .navmenu a i:hover,
-    .navmenu a:focus i:hover {
-        background-color: var(--accent-color);
-        color: var(--contrast-color);
-    }
-
     .navmenu a:hover,
     .navmenu .active,
     .navmenu .active:focus {
         color: var(--nav-dropdown-hover-color);
-    }
-
-    .navmenu .active i,
-    .navmenu .active:focus i {
-        background-color: var(--accent-color);
-        color: var(--contrast-color);
-        transform: rotate(180deg);
     }
 
     .navmenu a i,
@@ -273,7 +245,7 @@
     }
 
     .index-page .navmenu .active a,
-    .index-page .navmenu .active a:focus{
+    .index-page .navmenu .active a:focus {
         color: var(--active-color) !important;
     }
 
@@ -292,11 +264,11 @@
         background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
     }
 
-    .navmenu .active .dropdown i,
-    .navmenu .active:focus .dropdown i {
+    .navmenu .active i,
+    .navmenu .active:focus i {
         background-color: var(--accent-color) !important;
-        color: var(--contrast-color);
-        transform: rotate(180deg);
+        color: var(--contrast-color) !important;
+        transform: rotate(180deg) !important;
     }
 
     .navmenu .dropdown>.dropdown-active {
