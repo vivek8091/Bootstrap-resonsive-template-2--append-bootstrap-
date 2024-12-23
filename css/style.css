@@ -82,6 +82,9 @@ body {
     font-family: var(--default-font) !important;
 }
 
+
+/* Header Section */
+
 .header {
     color: var(--default-color);
     background-color: var(--background-color);
@@ -139,6 +142,9 @@ body {
     color: var(--contrast-color);
     background: color-mix(in srgb, var(--accent-color), transparent 15%);
 }
+
+
+
 
 /* Hero Section */
 
@@ -223,7 +229,11 @@ body {
     background-color: color-mix(in srgb, var(--accent-color), transparent 10%);
 }
 
+
+
+
 /* Clients Section */
+
 .clients {
     padding: 20px 0;
 }
@@ -248,7 +258,11 @@ body {
     filter: none;
 }
 
+
+
+
 /* About Us Section */
+
 .about .content h3 {
     font-size: 16px;
     font-weight: 500;
@@ -341,7 +355,11 @@ body {
     margin-top: -40px;
 }
 
+
+
+
 /* Stats Section */
+
 .stats {
     position: relative;
     padding: 120px 0;
@@ -390,6 +408,9 @@ body {
     font-weight: 700;
     color: color-mix(in srgb, var(--default-color), transparent 40%);
 }
+
+
+
 
 /* Services Section */
 
@@ -498,6 +519,8 @@ body {
 
 
 
+
+
 /* Features Section */
 
 .features .features-item {
@@ -582,6 +605,8 @@ body {
 }
 
 
+
+
 /* Portfolio Section */
 
 .portfolio .portfolio-filters {
@@ -624,15 +649,13 @@ body {
 }
 
 .portfolio .portfolio-item {
+    position: relative;
     overflow: hidden;
-    /* position: absolute;  */
 }
 
 .portfolio .portfolio-item img {
     width: 100%;
-    /* Scale image to fit container */
     height: auto;
-    /* Maintain image aspect ratio */
     display: block;
 }
 
