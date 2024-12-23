@@ -296,6 +296,14 @@
 
 @media (max-width: 768px) {
 
+    .hero h2{
+        font-size: 32px !important;
+    }
+
+    .hero p{
+        font-size: 18px !important;
+    }
+
     .about .icon-boxes .col-md-6:nth-child(2) .icon-box,
     .about .icon-boxes .col-md-6:nth-child(4) .icon-box {
         margin-top: 0 !important;

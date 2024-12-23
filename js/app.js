@@ -2,11 +2,7 @@ AOS.init({
   debug: true,
 });
 
-
-// Select the header element
-const body = document.querySelector(".index-page");
-
-// Add a scroll event listener to the window
+// Add a scroll event listener to the window...
 window.addEventListener("scroll", () => {
   if (window.scrollY > 50) {
     body.classList.add("scrolled"); // Add the scrolled class when the page is scrolled down
@@ -15,11 +11,18 @@ window.addEventListener("scroll", () => {
   }
 });
 
-// Scroll after click on nav links
+// Select the header element...
+const body = document.querySelector(".index-page");
+// Scroll after click on nav links selections...
 const sections = document.querySelectorAll("section"); // Replace with the appropriate selector for your sections
 const menuLinks = document.querySelectorAll(".navmenu ul li a"); // Adjust the selector if necessary
 const headerHeight = document.querySelector(".header")?.offsetHeight || 0; // Adjust if your header height is dynamic
+// Mobile nav opens selections...
+const mobileNavToggle = document.querySelector(".mobile-nav-toggle");
+const navbar = document.querySelector("body");
 
+
+// Scroll after click logic...
 function setActiveLink() {
   // Function to set the active link
   let currentSectionId = "";
@@ -52,10 +55,12 @@ window.addEventListener("scroll", setActiveLink);
 setActiveLink();
 
 // Smooth scroll when clicking on menu links
+// const links = document.querySelector(".navmenu")
 menuLinks.forEach((link) => {
   link.addEventListener("click", (e) => {
     e.preventDefault();
-
+    navbar.classList.remove("mobile-nav-active");
+    mobileNavToggle.classList.replace("bi-x", "bi-list");
     const targetId = link.getAttribute("href");
     const targetSection = document.querySelector(targetId);
 
@@ -69,16 +74,6 @@ menuLinks.forEach((link) => {
   });
 });
 
-// Mobile nav open
-const mobileNavToggle = document.querySelector(".mobile-nav-toggle");
-const navbar = document.querySelector("body");
-const toggleDropdown1 = document.querySelector(".dropdown i");//Dropdown
-const toggleDropdown2 = document.querySelector(".dropdown .dropdown i"); //Deep Dropdown
-
-const dropUl1 = document.querySelector(".dropdown ul");
-const dropUl2 = document.querySelector(".dropdown .dropdown ul");
-const dropActive1 = document.querySelector(".dropdown a"); //Dropdown
-const dropActive2 = document.querySelector(".dropdown ul .dropdown a"); //Deep Dropdown
 
 // Add click event listener to the toggle button
 mobileNavToggle.addEventListener("click", () => {
@@ -90,22 +85,11 @@ mobileNavToggle.addEventListener("click", () => {
   }
 });
 
-// toggleDropdown1.addEventListener("click", () => {
-//   dropActive1.classList.toggle("active");
-//   dropUl1.classList.toggle("dropdown-active");
-// });
-
-// toggleDropdown2.addEventListener("click", () => {
-//   dropActive2.classList.toggle("active");
-
-//   dropUl2.classList.toggle("dropdown-active");
-// });
-
-document.querySelectorAll('.navmenu .toggle-dropdown').forEach(navmenu => {
-  navmenu.addEventListener('click', function(e) {
+document.querySelectorAll(".navmenu .toggle-dropdown").forEach((navmenu) => {
+  navmenu.addEventListener("click", function (e) {
     e.preventDefault();
-    this.parentNode.classList.toggle('active');
-    this.parentNode.nextElementSibling.classList.toggle('dropdown-active');
+    this.parentNode.classList.toggle("active");
+    this.parentNode.nextElementSibling.classList.toggle("dropdown-active");
     e.stopImmediatePropagation();
   });
 });
