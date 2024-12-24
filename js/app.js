@@ -1,24 +1,40 @@
 /**
-   * Animation on scroll function and init
-   */
+ * Animation on scroll function and init
+ */
 function aosInit() {
   AOS.init({
     duration: 600,
-    easing: 'ease-in-out',
+    easing: "ease-in-out",
     once: true,
-    mirror: false
+    mirror: false,
   });
 }
-window.addEventListener('load', aosInit);
+window.addEventListener("load", aosInit);
+
+/**
+ * Initiate glightbox
+ */
+document.addEventListener("DOMContentLoaded", () => {
+  // Initialize GLightbox
+  const glightbox = GLightbox({
+    selector: ".glightbox",
+  });
+});
 
 // Add a scroll event listener to the window...
-window.addEventListener("scroll", () => {
+const handleScroll = () => {
+  console.log("Scrolling... Y Offset:", window.scrollY);
   if (window.scrollY > 50) {
-    body.classList.add("scrolled"); // Add the scrolled class when the page is scrolled down
+    console.log("Adding scrolled class");
+    body.classList.add("scrolled");
   } else {
-    body.classList.remove("scrolled"); // Remove the scrolled class when at the top of the page
+    console.log("Removing scrolled class");
+    body.classList.remove("scrolled");
   }
-});
+};
+
+window.addEventListener("scroll", handleScroll);
+document.addEventListener("DOMContentLoaded", handleScroll);
 
 // Select the header element...
 const body = document.querySelector(".index-page");
@@ -111,26 +127,61 @@ document.querySelectorAll(".navmenu .toggle-dropdown").forEach((navmenu) => {
 });
 
 // Portfolio section...
-document.addEventListener("DOMContentLoaded", function () {
-  // Initialize Isotope on the portfolio-container
-  var portfolioContainer = document.querySelector(".portfolio-container");
+/**
+ * Init isotope layout and filters
+ */
+document.querySelectorAll(".isotope-layout").forEach(function (isotopeItem) {
+  let layout = isotopeItem.getAttribute("data-layout") ?? "masonry";
+  let filter = isotopeItem.getAttribute("data-default-filter") ?? "*";
+  let sort = isotopeItem.getAttribute("data-sort") ?? "original-order";
 
-  if (portfolioContainer) {
-    var iso = new Isotope(portfolioContainer, {
-      itemSelector: ".portfolio-item", // Target items
-      layoutMode: "masonry", // Masonry-like layout
-      masonry: {
-        columnWidth: ".portfolio-item", // Use portfolio-item width for column sizing
-      },
+  let initIsotope;
+  imagesLoaded(isotopeItem.querySelector(".isotope-container"), function () {
+    initIsotope = new Isotope(isotopeItem.querySelector(".isotope-container"), {
+      itemSelector: ".isotope-item",
+      layoutMode: layout,
+      filter: filter,
+      sortBy: sort,
     });
+  });
 
-    // Optional: Add filtering functionality (if filter buttons exist)
-    var filterButtons = document.querySelectorAll(".filter-button");
-    filterButtons.forEach(function (button) {
-      button.addEventListener("click", function () {
-        var filterValue = button.getAttribute("data-filter");
-        iso.arrange({ filter: filterValue });
-      });
+  isotopeItem
+    .querySelectorAll(".isotope-filters li")
+    .forEach(function (filters) {
+      filters.addEventListener(
+        "click",
+        function () {
+          isotopeItem
+            .querySelector(".isotope-filters .filter-active")
+            .classList.remove("filter-active");
+          this.classList.add("filter-active");
+          initIsotope.arrange({
+            filter: this.getAttribute("data-filter"),
+          });
+          if (typeof aosInit === "function") {
+            aosInit();
+          }
+        },
+        false
+      );
     });
-  }
 });
+
+/**
+ * Init swiper sliders
+ */
+function initSwiper() {
+  document.querySelectorAll(".init-swiper").forEach(function (swiperElement) {
+    let config = JSON.parse(
+      swiperElement.querySelector(".swiper-config").innerHTML.trim()
+    );
+
+    if (swiperElement.classList.contains("swiper-tab")) {
+      initSwiperWithCustomPagination(swiperElement, config);
+    } else {
+      new Swiper(swiperElement, config);
+    }
+  });
+}
+
+window.addEventListener("load", initSwiper);
