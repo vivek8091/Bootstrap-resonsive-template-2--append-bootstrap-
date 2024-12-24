@@ -2,18 +2,6 @@ AOS.init({
   debug: true,
 });
 
-/**
-   * Initiate glightbox
-   */
-const glightbox = GLightbox({
-  selector: '.glightbox'
-});
-
-/**
- * Initiate Pure Counter
- */
-new PureCounter();
-
 // Add a scroll event listener to the window...
 window.addEventListener("scroll", () => {
   if (window.scrollY > 50) {
@@ -93,12 +81,14 @@ mobileNavToggle.addEventListener("click", () => {
     mobileNavToggle.classList.replace("bi-x", "bi-list");
   }
 
-  // Close all dropdowns when the navbar is closed
-  document.querySelectorAll(".navmenu .active").forEach((item) => {
-    item.classList.remove("active");
+  // To remove active and dropdown-active class drop dropdown after closing navmenu...
+
+  document.querySelectorAll(".navmenu .dropdown ul").forEach((ul) => {
+    ul.classList.remove("dropdown-active");
   });
-  document.querySelectorAll(".dropdown-active").forEach((item) => {
-    item.classList.remove("dropdown-active");
+
+  document.querySelectorAll(".navmenu .dropdown .active").forEach((active) => {
+    active.classList.remove("active");
   });
 });
 
