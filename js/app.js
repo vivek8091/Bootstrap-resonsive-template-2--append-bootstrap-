@@ -23,12 +23,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Add a scroll event listener to the window...
 const handleScroll = () => {
-  console.log("Scrolling... Y Offset:", window.scrollY);
+  // console.log("Scrolling... Y Offset:", window.scrollY);
   if (window.scrollY > 50) {
-    console.log("Adding scrolled class");
+    // console.log("Adding scrolled class");
     body.classList.add("scrolled");
   } else {
-    console.log("Removing scrolled class");
+    // console.log("Removing scrolled class");
     body.classList.remove("scrolled");
   }
 };
@@ -185,3 +185,19 @@ function initSwiper() {
 }
 
 window.addEventListener("load", initSwiper);
+
+
+// FAQ Section...
+document.querySelectorAll('.faq-item h3, .faq-toggle').forEach((faqItem) => {
+faqItem.addEventListener('click', () => {
+  const currentitem = faqItem.closest('.faq-item');
+
+  document.querySelectorAll('.faq-item').forEach((item) => {
+    if(item !== currentitem){
+      item.classList.remove('faq-active');
+    }
+  });
+
+  currentitem.classList.toggle('faq-active');
+});
+});
