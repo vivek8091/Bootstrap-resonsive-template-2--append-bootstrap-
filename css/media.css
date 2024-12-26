@@ -319,6 +319,15 @@
     .features .features-item+.features-item {
         margin-top: 40px !important;
     }
+
+    .testimonials .testimonials-carousel,
+    .testimonials .testimonials-slider {
+        overflow: hidden;
+    }
+
+    .testimonials .testimonial-item {
+        margin: 15px;
+    }
 }
 
 @media (max-width: 640px) {
