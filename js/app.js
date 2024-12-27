@@ -41,6 +41,26 @@ const handleScroll = () => {
 window.addEventListener("scroll", handleScroll);
 document.addEventListener("DOMContentLoaded", handleScroll);
 
+const scrollTop = document.querySelector(".scroll-top");
+
+const scrollTopOn = () => {
+ if (scrollTop) {
+  window.scrollY > 100 ? scrollTop.classList.add("active") : scrollTop.classList.remove("active");
+ }
+}
+
+scrollTop.addEventListener("click", (e) => {
+  e.preventDefault();
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  });
+});
+
+window.addEventListener("scroll", scrollTopOn);
+document.addEventListener("DOMContentLoaded", scrollTopOn);
+
+
 // Select the header element...
 const body = document.querySelector(".index-page");
 // Scroll after click on nav links selections...

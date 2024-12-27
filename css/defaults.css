@@ -18,6 +18,17 @@
   --nav-dropdown-hover-color: #e84545;
 }
 
+a {
+  color: var(--accent-color);
+  text-decoration: none !important;
+  transition: 0.3s;
+}
+
+a:hover {
+  color: color-mix(in srgb, var(--accent-color), transparent 25%);
+  text-decoration: none !important
+}
+
 section,
 .section {
   color: var(--default-color);
@@ -39,8 +50,3 @@ h6 {
   font-family: var(--heading-font) !important;
 }
 
-a {
-  color: var(--accent-color);
-  text-decoration: none !important;
-  transition: 0.3s;
-}
